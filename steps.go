@@ -37,9 +37,8 @@ func InitializeScenario(ctx *godog.ScenarioContext) {
 	ctx.Step(`^The Ingress status shows the IP address or FQDN where it is exposed$`, theIngressStatusShowsTheIPAddressOrFQDNWhereItIsExposed)
 	ctx.Step(`^I send a "([^"]*)" request to "([^"]*)"$`, iSendARequestTo)
 	ctx.Step(`^the response status code must be (\d+)$`, theResponseStatusCodeMustBe)
-	ctx.Step(`^set the "([^"]*)" field for the request header with the value "([^"]*)"$`, setTheFieldForTheRequestHeaderWithTheValue)
-	ctx.Step(`^add the "([^"]*)" field for the request header with the value "([^"]*)"$`, addTheFieldForTheRequestHeaderWithTheValue)
-	ctx.Step(`^delete the "([^"]*)" field for the request header with the value "([^"]*)"$`, deleteTheFieldForTheRequestHeaderWithTheValue)
+	ctx.Step(`^the value of the "([^"]*)" field in the header must be "([^"]*)"$`, theValueOfTheFieldInTheHeaderMustBe)
+	ctx.Step(`^header\'s "([^"]*)" field and its value must be deleted$`, headersFieldAndItsValueMustBeDeleted)
 
 	ctx.BeforeScenario(func(*godog.Scenario) {
 		state = tstate.New()
@@ -67,15 +66,11 @@ func theResponseStatusCodeMustBe(arg1 int) error {
 	return godog.ErrPending
 }
 
-func setTheFieldForTheRequestHeaderWithTheValue(arg1 string, arg2 string) error {
+func theValueOfTheFieldInTheHeaderMustBe(arg1 string, arg2 string) error {
 	return godog.ErrPending
 }
 
-func addTheFieldForTheRequestHeaderWithTheValue(arg1 string, arg2 string) error {
-	return godog.ErrPending
-}
-
-func deleteTheFieldForTheRequestHeaderWithTheValue(arg1 string, arg2 string) error {
+func headersFieldAndItsValueMustBeDeleted(arg1 string) error {
 	return godog.ErrPending
 }
 
